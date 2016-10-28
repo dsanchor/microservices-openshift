@@ -1,0 +1,149 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Passport blacklist service",
+		"_postman_id": "051665d3-76b7-89c2-6ed0-d562771fde80",
+		"description": "Tests collection for validate passport blacklist service functionality",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add passport to blacklist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+					}
+				}
+			],
+			"request": {
+				"url": " http://{{host}}/passports/blacklist/AAI89891",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "It will return:\n- 204 => passport added to Blacklist, whether existed already or not\n- 500 => internal error\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Add passport to blacklist - check idempotency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+					}
+				}
+			],
+			"request": {
+				"url": " http://{{host}}/passports/blacklist/AAI89891",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "It will return:\n- 204 => passport added to Blacklist, whether existed already or not\n- 500 => internal error"
+			},
+			"response": []
+		},
+		{
+			"name": "Check if passport is in Blacklist (found)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+					}
+				}
+			],
+			"request": {
+				"url": " http://{{host}}/passports/blacklist/AAI89891",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "It will return:\n- 204 => passport is in Blacklist. \n- 404 => passport is NOT in Blacklist. \n- 500 => internal error\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete passport from blacklist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+					}
+				}
+			],
+			"request": {
+				"url": " http://{{host}}/passports/blacklist/AAI89891",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "It will return:\n- 204 => passport removed from blacklist, whether existed already or not\n- 500 => internal error\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete passport from blacklist - check idempotency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+					}
+				}
+			],
+			"request": {
+				"url": " http://{{host}}/passports/blacklist/AAI89891",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "It will return:\n- 204 => passport removed from blacklist, whether existed already or not\n- 500 => internal error\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Check if passport is in Blacklist (not found)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 404\"] = responseCode.code === 404;"
+					}
+				}
+			],
+			"request": {
+				"url": " http://{{host}}/passports/blacklist/AAI89891",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "It will return:\n- 204 => passport is in Blacklist. \n- 404 => passport is NOT in Blacklist. \n- 500 => internal error\n"
+			},
+			"response": []
+		}
+	]
+}

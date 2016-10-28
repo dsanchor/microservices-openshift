@@ -1,0 +1,16 @@
+{
+  "id": "360687d8-7818-484f-d9e9-5df0f193f2fa",
+  "name": "stage",
+  "values": [
+    {
+      "key": "host",
+      "value": "hostnamexxx",
+      "type": "text",
+      "enabled": true
+    }
+  ],
+  "timestamp": 1477642540596,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2016-10-28T08:46:58.442Z",
+  "_postman_exported_using": "Postman/4.8.0"
+}
